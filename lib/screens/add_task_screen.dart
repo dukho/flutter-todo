@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:todo_flutter/models/task.dart';
+import 'package:provider/provider.dart';
+import 'package:todo_flutter/models/task_data.dart';
 
 class AddTaskScreen extends StatefulWidget {
   final Function listener;
@@ -54,6 +57,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
               onPressed: () {
                 print("hmmm $newTaskTitle");
                 widget.listener(newTaskTitle);
+                Provider.of<TaskData>(context).addTask(newTaskTitle);
               },
             ),
           ],
